@@ -1,22 +1,13 @@
 <?php
-$link = new PDO("mysql:host=localhost;dbname=db_oopmvc", "root", "");
-$result = $link->query("SELECT *from anggota");
+$link = new PDO("mysql:host=localhost;dbname=db_oopmvc", "root", ""); // Koneksi database menggunakan PDO (PHP data Object)
+$result = $link->query("SELECT *from anggota"); // Memanggil tabel anggota
+
+$anggota = array();
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    $anggota[]=$row;
+}
+
+$link = null;
+require "view/anggota/list.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Daftar Anggota</h1>
-    <?php
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)):      
-        ?> 
-        <li>
-            <a href=""> <?= $row['nama']; ?></a>
-        </li>
-      <?php endwhile ?>
-</body>
-</html>
+
