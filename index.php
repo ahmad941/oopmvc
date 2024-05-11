@@ -1,13 +1,11 @@
 <?php
-$link = new PDO("mysql:host=localhost;dbname=db_oopmvc", "root", ""); // Koneksi database menggunakan PDO (PHP data Object)
-$result = $link->query("SELECT *from anggota"); // Memanggil tabel anggota
+// susunan file : oopmvc/index.php
 
-$anggota = array();
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    $anggota[]=$row;
-}
+// Memanggil model
+require_once "model/anggota_model.php";
 
-$link = null;
+$anggota = getAnggota();
+
+//Memanngil list.php untuk menampilkan data anggota
 require "view/anggota/list.php";
-?>
 
