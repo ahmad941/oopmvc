@@ -17,4 +17,17 @@ function getAnggota(){ // fungsi untuk memanggil tabel anggota dari database
     closeDbConnection($link);
     return $anggota;
 }
+
+function getAnggotabyId($id) {
+    $link = openDbConnection();
+
+    $query = "SELECT *FROM anggota WHERE Id =:id";
+    $statement = $link->prepare($query);
+    $statement->bindValue(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $row =$statement->fetch(PDO::FETCH_ASSOC);
+    closeDbConnection($link);
+    return $row;
+}
 ?>
