@@ -1,9 +1,6 @@
-<!-- file : oopmvc/view/detail.php -->
-
+<!-- file : oopmvc/view/anggota/detail.php -->
 <?php
 $judul = $anggota['nama'];
-
-
 ?>
 
 <?php ob_start() ?>

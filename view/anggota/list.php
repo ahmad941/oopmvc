@@ -10,7 +10,7 @@ ob_start()
         ?>
     </ul>
     <li>
-        <a href="detail.php?id=<?= $row['Id']?> "> <?= $row['nama'];?></a>
+        <a href="detail.php?Id=<?= $row['Id']?> "> <?= $row['nama'];?></a>
     </li>
 
 <?php
